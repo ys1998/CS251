@@ -1,6 +1,6 @@
 # CS251 Software Systems Lab
-##Assignments' collection
-###Using your branch
+## Assignments' collection
+### Using your branch
 Create a local repository by using this command:
 ```
 git clone <url to remote repo's branch>
