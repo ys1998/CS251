@@ -1,5 +1,5 @@
-# CS251 Software Systems Lab
-## Assignments' collection
+# CS251 
+## Software Systems Lab : Assignments' collection
 ### Using your branch
 Create a local repository by using this command:
 ```
