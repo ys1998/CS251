@@ -26,6 +26,8 @@ BEGIN {
 		}
 		else	address[name] = address[name] " " $i;	
 	}
+
+	sub(/^\s*/,"",$NF);
 	email[name] = $NF;		#For the last line
 	first = "false";		
 }
