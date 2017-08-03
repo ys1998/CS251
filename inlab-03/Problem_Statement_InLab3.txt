@@ -1,0 +1,224 @@
+Advanced SED and AWK Problem Statement
+*******************************************************************************************************
+------------------------------------------------------
+Solving Instructions for inlab assignment
+------------------------------------------------------
+
+Strictly follow the instructions given below:
+
+1. Solution for each assignment is to be typed into the .sh or .sed or .awk file already kept inside the corresponding folder.  
+
+2.  Remember, you need to  change the permission of the .sh file before executing it: 
+    ​   chmod u+x     ​ <scriptfile>  or chmod 777 <scriptfile>
+
+3. Do not change the structure and the names.. The automatic checker will give you a 
+“not­submitted” grade otherwise, if it does not find the names. 
+ 
+4. Remember to follow the exact output formats specified. Extra characters will lead to incorrect evaluation by automatic checker. 
+
+5. See the sample_input and sample_output for actual folder which is given in testcase directory of each problem. 
+
+5. Inside the script if you use any temporary file, write command to remove it after the 
+operation within that script only. 
+
+6. To check your solution run the script test.sh given in corresponding folder.
+
+-----------------------------------------------------------
+Submission Guidelines for assignment - (5 marks, 0 to be awarded in case these are not followed)[to be followed for both inlab and outlab]
+-----------------------------------------------------------
+1. Create a file readme.txt  in lab#rollno.1_rollno.2_rollno.3_rollno.4 directory, which contains contribution of each team member and references (cite where you get code/code snippets from).
+
+2. Rename the directory lab#rollno.1_rollno.2_rollno.3_rollno.4 to actual lab number instead of #, replace the rollno.N with your respective roll numbers.
+
+3. Compress the directory to <team_name>.tar.gz
+
+4. Submit one assignment per team. 	
+
+*******************************************************************************************************
+
+In-lab Assignment
+
+-------------------------------------
+Problem 1:
+-------------------------------------
+You are a cracker(an unethical hacker is called a ‘cracker’) and you plan to mint money from a wealthy organization by blackmailing them. You happen to come across a scandalous document which proves that many employees of that organization were involved in a sham that occurred few years ago. 
+You are going to ask for a ransom in exchange of keeping the document secret. To start off, you must extract all the email IDs mentioned in the document for sending a threatening message.
+
+So, write a shell script ‘script1.sh’ that will extract all the valid email IDs from a given text file and print them on the terminal (one email ID in one line).
+
+Email id Format: {contains only letters,digits, ‘.’  and ‘_’ }@{letters and ‘.’ only}
+Some valid email IDs are given below:
+
+champak@xyz.com
+supandi@yahoo.co.in
+tumtum@cse.iitb.ac.in	
+huk_um.chalisa123@gmail.com
+
+Invalid email IDs :
+dha#csg@gmail.com
+Rham.hsdfk.234.456
+
+The script output will be graded programmatically, and any idiosyncrasies shall lead to deduction of marks.
+
+How to execute:
+./script1.sh <inputFileName>
+(here filename is passed as an ARGUMENT and NOT AS AN INPUT STREAM)
+
+
+
+
+-------------------------------------
+Problem 2:
+-------------------------------------
+
+Your computer networks project deadline is knocking on the doors and you have a considerable amount of work left. A major portion of the project requires you to validate IP addresses and map the valid IP addresses to their respective classes. 
+
+You have a text file of a log that contains some addresses and you want to write a script that will automate this task. [Input]
+
+Write a shell script that will extract valid IP addresses from a given text. For every valid IP address found, print its corresponding class.
+
+You should write your script in 'script2.sh' file provided inside the directory. If there are 'n' valid IP addresses in your script, then your output should be 'n' IP addresses followed by their class separated by a space. 
+
+IPv4 Format:
+w.x.y.z , where w,x,y,z are in range [0,255].
+Class A :  w is in range [0,127]
+Class B :  w is in range [128,191]
+Class C :  w is in range [192,223]
+Class D :  w is in range [224,239]
+Class E :  w is in range [240,247]
+Not Defined : w is in range [248,255]
+
+How to execute:
+./script2.sh <inputFileName>
+(here filename is passed as an ARGUMENT and NOT AS AN INPUT STREAM)
+
+Print the output on the terminal itself.
+e.g., if the given text contains 3 valid IP addresses, then your output should look like:
+
+10.12.144.36 A
+178.152.36.45 B
+192.168.12.1 C
+232.56.23.1 D
+245.23.123.234 E
+250.2.3.45 Not Defined
+
+
+
+
+
+
+-------------------------------------
+Problem 3:
+-------------------------------------
+
+Your friend has completed his CS101 assignment and you feel numb that you could not even started it. In the end, you are just bothered with marks and simply want to come crawling out of the course. After getting a papercut you have decided to get it from him over e-mail, and not write it down. You are dead from the inside and breaking the habit of being able to copy an assignment and/or thinking what i’ve done after every submission, is getting harder day by day. 
+
+The first step to copying an assignment is ensuring you do not get caught when you submit it; the little things give you away.
+
+You want to remove all the comments from his assignment to get one step closer to the submission. [We won’t mind if the readme of this assignment contains the name of “you-know-what” we are referring to in the text above” ;) ]
+
+Strong disclaimer: We do not encourage you to copy assignments at all. In the words of Arnab Goswami - “Never ever! Ever Ever!” The consequences of getting caught in this department are pretty rough. You do not believe me? Ask your seniors what a D-ADAC is!
+
+Write a SED script “script3.sed”  which cleans both kinds of comments from the C file (// and /* */ - single line and multi line) and prints the cleaned code on the terminal (no printing in a separate file; no output file to be generated).
+
+The script output in the input file itself will be graded programmatically, and any idiosyncrasies shall lead to deduction of marks.
+
+Input :
+C program file name
+sed -f script3.sed <inputFile>
+(here filename is passed as an ARGUMENT and NOT AS AN INPUT STREAM)
+
+Output:
+Cleaned C program on the terminal.
+
+
+
+
+-------------------------------------
+Problem 4:
+-------------------------------------
+
+A program written by you gets the input from an embedded systems device (Joystick on a gamepad) through a serial port on your machine. The program generates output in the following format:
+
+    1,X!2,Y!3,Z!2.5,O!
+
+where the , denotes a field separator and ! denotes a record separator.
+
+Write an awk program script4.awk which takes as an input argument a file of the format specified above and generates the output on command line (prints the output; not in a file, for the n-th time, not in a file) of this format:
+
+How to Execute:
+awk -f script4.awk <inputFile>
+(here filename is passed as an ARGUMENT and NOT AS AN INPUT STREAM)
+
+Output:
+Value	SensorNumber
+1	X
+2	Y
+3	Z
+2.5	O
+
+The above should be the output on the command line and nothing else should be generated, not a file, not anything extra written. The script output will be graded programmatically, and any idiosyncrasies shall lead to deduction of marks.
+
+
+
+
+-------------------------------------
+Problem 5:
+-------------------------------------
+Your 9 year old brother is facing lot of problems at school. One of his classmates has taken a liking to his tiffin and snatches his food every day. As a result, your brother is not able to eat the delicious tiffin that your mother cooks for him. 
+Your brother wants to complain to his class teacher but he doesn’t know english well. He uses too many words starting and ending with vowels. You want to find those words from his note.
+
+Write a shell script ‘script5.sh’ that finds all the DISTINCT words that start and end with a vowel in a file.
+
+Your output will be all the words that start and end with a vowel. You should print one word in each line(SORTED ORDER). Print the output on the terminal itself.
+
+
+How to execute:
+./script5.sh <inputFileName>
+(here filename is passed as an ARGUMENT and NOT AS AN INPUT STREAM)
+
+Sample Output:
+Aeroplane
+Atacama
+Eye
+Ogre
+
+
+
+
+-------------------------------------
+Problem 6:
+-------------------------------------
+
+You have come across a large corpus (text document), and want to create a dictionary out of it. A dictionary is a collection of unique words here in this context, but in a particular format. The format is:
+
+Every word has been converted to lowercase.
+All punctuation marks are removed, and not to be considered as words.
+
+The input file shall contain paragraphs and the dictionary shall be a simple list of words contained in the file. Write a Bash script ‘script6.sh’ which uses AWK, SED or whatever you would like to use to create such a dictionary from a corpus provided as an input argument to the script.
+
+The dictionary should be printed on the terminal(IN SORTED ORDER) and not output to a file. The input argument would be a file which contains the text.
+
+E.g.
+Input file contains:
+We are the students of IIT Bombay, we are here to learn Computer Science and Engineering. We were surprised to know that our TA’s are themselves students from the same institute.
+
+Output (likely):
+and
+are
+bombay
+computer
+.
+.
+.
+surprised
+ta’s
+that
+the
+themselves
+to
+we
+were
+
+
+So, remove all the punctuation marks at the end of the words, or at the beginning. The ones within the words should stay where they are (e.g. TA’s -> ta’s) 
