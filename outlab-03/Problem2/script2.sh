@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sed 's/\s\s*/\ /g' test2 | sed 's/^\s//g' | sed 's/\s$//g' | sed '/^\ *$/d'
+sed -E 's/[[:space:]][[:space:]]*/ /g' $1 | sed 's/^[[:space:]][[:space:]]*//g' | sed 's/[[:space:]][[:space:]]*$//g' | sed '/^[[:space:]]*$/d'
