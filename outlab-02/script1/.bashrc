@@ -6,7 +6,5 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias SIZE='du -sh .'
-echo $(find -maxdepth 1 | cut -d '/' -f 2)
-echo $(SIZE)
+alias size='du -s -h -c *[!.]* ./*'
 PS1='[\u@\h \W]\$ '
