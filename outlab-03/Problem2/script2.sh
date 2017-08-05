@@ -16,7 +16,6 @@ BEGIN {
 	gsub(/[[:space:]][[:space:]]*/, " ", $i);
 	gsub(/^[[:space:]]*/, "", $i);
 	gsub(/[[:space:]]*$/, "", $i);
-	gsub(/\([[:punct:]]\)[[:space:]]\([[:alnum:]]\)/, "\1\2", $i);
     }
     if(bracket == 0){
 	bracket = 1;
@@ -29,4 +28,4 @@ BEGIN {
 	bracket = 1;
     }
     print $0;
-}' | sed -e 's/^[[:space:]]//' -e '$s/[[:space:]]\"$//'
+}' | sed -e 's/^[[:space:]]//' -e '$s/[[:space:]]\"$//' -e 's/\s\s*\([.,?!;:][.,?!;:]*\)/\1/g'
