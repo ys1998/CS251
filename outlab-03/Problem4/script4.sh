@@ -1,5 +1,5 @@
 #!/bin/bash
-
+touch output.csv
 awk '
 BEGIN {
 	IGNORECASE = 1;
@@ -34,8 +34,8 @@ BEGIN {
 }
 
 END {
-	print "Name,Address,Email"
+	print "Name||Address||Email"
 	for (i in person) {
 		print i, address[i], email[i];
 	}
-}' $1
+}' $1 > output.csv
