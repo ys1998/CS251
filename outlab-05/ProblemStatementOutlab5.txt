@@ -1,0 +1,93 @@
+﻿JAVA Lab
+
+
+-----------------------------------------------------------
+Submission Guidelines for assignment - (5 marks, 0 to be awarded in case these are not followed)[to be followed for both inlab and outlab]
+-----------------------------------------------------------
+1. Create a file readme.txt in lab#_rollno.1_rollno.2_rollno.3_rollno.4 directory, which contains contribution of each team member and references (cite where you get code/code snippets from).
+e.g.lab5_154054002_154054005_154054001
+
+
+
+
+2. Rename the directory lab#_rollno.1_rollno.2_rollno.3_rollno.4 to actual lab number instead of #, replace the rollno.N with your respective roll numbers.
+e.g.lab5_154054002_154054005_154054001
+
+
+3. Compress the directory to <team_name>.tar.gz
+e.g. codekars.tar.gz
+
+
+4. Submit one assignment per team.         
+
+
+*******************************************************************************************************
+
+
+1. Modify the inlab problem 4 program so that it can read parse pdf, docs, doc files.
+  To do that you are going need third party packages Apache POI & Apache PDF Box.
+  This time user should be able to give the file path, depending upon file type
+  your program should invoke respective routine to:-
+    Extract the text
+    Tokenize the string, and remove stop words={and, the is, in, at, of, his, her, him, ...}
+    Store the remaining words in ArrayList.
+    Process the ArrayList so that repeated words are removed, and display the frequency of
+    each words.
+
+
+  Note: Writing this code in Modular way (Dividing in Classes) will help you in earning
+  bonus marks in 'Problem 4' below and will also reduce your work in 'Problem 4'.
+
+
+2. Initialize two arrays with random numbers of length N>1000. Now you have to add
+  and multiply these arrays element wise, and store the result in two separate arrays.
+  The Catch here is that the program should be multithreaded i.e. Two separate threads one for
+  multiply and other for addition. Both of them executing parallely.
+
+
+  Also compare this implementation against sequential implementation of yours and
+  write about observations as comments in your source code submission.
+
+
+3. These are two urls
+  https://www.cse.iitb.ac.in/~safeer/get_hash.php
+  https://www.cse.iitb.ac.in/~safeer/post_hash.php
+  These are php scripts which process 'GET' and 'POST' queries respectively. In both cases input
+  argument is 'input'.
+  These scripts will return you hash value of your 'input' query.
+  Using java sockets & streams, create program which sends 'GET' & 'POST' query to these scripts and displays the result in console.
+
+
+  For test simply typing this in browser
+  https://www.cse.iitb.ac.in/~safeer/get_hash.php?input=Safeer
+  will give this
+  Hash 9c1185a5c5e9fc54612808977ee8f548b2258d31
+  where ?input=<can be anything>
+
+
+  You have to do this for both 'GET' & 'POST'
+
+
+4. Design a GUI for the Problem 1(using javax.swing),
+  GUI should contain two Buttons "Select File" & "Process"
+  Clicking on "Select File" should display JFileChooser to select desired file.
+
+
+  GUI Should have JTextArea for stopwords, so that user can give comma separated
+  list of stopwords.
+
+
+  Clicking on "Process" should accomplish all the task stated as in Problem 1, but
+  displays the Words and their frequency in JTable with one column as word and other
+  as frequency.
+
+
+  Bonus Marks: If you are able to use pre-made module from 'Problem 1' without any
+  modification.(Simply copy pasting the code won't do, you will have to use existing module).
+
+
+5. Bonus Exploration Question:
+  Head over to https://processing.org/, It a beautiful framework & IDE based on java
+  It hides much of the verbosity of java to give an environment which is specially suited
+  for mathematicians and scientists to create animation, simulation and graphics in 2D & 3D.
+  Explore its example library and submit something cool which you have created.
