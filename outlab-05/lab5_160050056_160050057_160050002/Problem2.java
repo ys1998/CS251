@@ -48,7 +48,7 @@ public class Problem2 {
     // main function
     public static void main(String[] args) {
         // variables to store time of execution
-        long st,end;
+        long st,st1,end;
         // initialize 'a' and 'b' with random integers from 0 to 99
         Random r = new Random();
         for (int i = 0; i < 5000; ++i) {
@@ -60,13 +60,15 @@ public class Problem2 {
         Multiply product = new Multiply(a, b);
 
         // Execution using threads
-        st=System.nanoTime();
+        st1=System.nanoTime();
         Thread t1 = new Thread(sum);
         Thread t2 = new Thread(product);
+        st=System.nanoTime();
         t1.start();
         t2.start();
         end=System.nanoTime();
-        System.out.println("Threading time (ns) : "+(end-st));
+        System.out.println("Threading time (ns) EXCLUDING thread creation : "+(end-st));
+        System.out.println("Threading time (ns) INCLUDING thread creation : "+(end-st1));
 
         // Sequential execution
         int[] s = new int[5000];
@@ -87,5 +89,9 @@ public class Problem2 {
     // because the operation performed in the threads is trivial (adding and 
     // multiplying numbers) and so, the cost of creating and maintaining threads
     // dominates over operation cost. Thus, using a single thread turns out to 
-    // be more efficient
+    // be more efficient, if we include the thread creation time
+    
+    // However, if thread creation time is excluded and we simply focus on the
+    // thread execution time, then it is less than the sequential time (as expected
+    // due to time splicing)
 }
