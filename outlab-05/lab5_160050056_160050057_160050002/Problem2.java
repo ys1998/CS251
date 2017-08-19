@@ -92,5 +92,6 @@ public class Problem2 {
     // be more efficient, if we include the thread creation time
     
     // However, if thread creation time is excluded and we simply focus on the
-    // thread execution time, then it is less than the sequential time (as expected)
+    // thread execution time, then it is less than the sequential time (as expected
+    // due to time splicing)
 }
