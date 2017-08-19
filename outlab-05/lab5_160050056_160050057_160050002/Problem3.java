@@ -35,14 +35,12 @@ public class Problem3 {
         out.println();
         out.flush();
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(
-                        socket.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-		String line, buff="";
+	String line, buff="";
 
-		while ((line = in.readLine()) != null)  buff = line;
-		System.out.println(buff);
+	while ((line = in.readLine()) != null)  buff = line;
+	System.out.println(buff);
 
         out.close();
         in.close();
@@ -67,16 +65,13 @@ public class Problem3 {
         //out.println();
         out.flush();
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(
-                        socket.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-		String line, buff="";
+	String line, buff="";
 
-		while ((line = in.readLine()) != null)  buff = line;
-		System.out.println(buff);
+	while ((line = in.readLine()) != null)  buff = line;
+	System.out.println("Hash " + buff);
         
-        System.out.println("Hash " + prev_line);
         out.close();
         in.close();
     }
