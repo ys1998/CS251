@@ -9,6 +9,7 @@ final float g=20; // acceleration due to gravity
 final float e=0.6; // coefficient of restitution
 final float delta_t=0.06; // time interval
 final float J=100; // impulse
+final float size=10; // size of balls : radius is size/2
 float[] pos_x=new float[N];
 float[] pos_y=new float[N];
 float[] vel_x=new float[N];
@@ -21,8 +22,8 @@ void setup() {
   for (int i=0; i<N; ++i) {
     vel_x[i]=0.0002; 
     vel_y[i]=0.0002;
-    pos_x[i]=(right_x-left_x)/N*i+left_x;
-    pos_y[i]=50;
+    pos_x[i]=random(left_x,right_x);
+    pos_y[i]=random(up_y,floor_y);
   }
   background(0);
   stroke(255,255,255);
@@ -37,26 +38,30 @@ void draw() {
     pos_y[i]+=vel_y[i]*delta_t;
     if(abs(vel_x[i])<0.0001) vel_x[i]=0;
     if(abs(vel_y[i])<0.0001) vel_y[i]=0;
-    if (pos_x[i]<left_x) {
-      pos_x[i]=left_x+1;
+    if (pos_x[i]-size/2<left_x) {
+      pos_x[i]=left_x+size/2;
       vel_x[i]=-1*e*vel_x[i];
     }
-    if (pos_x[i]>right_x) {
-      pos_x[i]=right_x-1;
+    if (pos_x[i]+size/2>right_x) {
+      pos_x[i]=right_x-size/2;
       vel_x[i]=-1*e*vel_x[i];
     }
-    if (pos_y[i]<up_y) {
-      pos_y[i]=up_y+1;
+    if (pos_y[i]-size/2<up_y) {
+      pos_y[i]=up_y+size/2;
       vel_y[i]=-1*e*vel_y[i];
     }
-    if (pos_y[i]>floor_y) {
-      pos_y[i]=floor_y-1;
+    if (pos_y[i]+size/2>floor_y) {
+      pos_y[i]=floor_y-size/2;
       vel_y[i]=-1*e*vel_y[i];
     }
   }
   // draw all balls
+  fill(255,255,0);
+  textAlign(CENTER,BOTTOM);
+  text("CLICK ANYWHERE TO SEND THE BALLS FLYING",320,floor_y);
+  fill(255,255,255);
   for (int i=0; i<N; ++i) {
-    ellipse(pos_x[i], pos_y[i], 10, 10);
+    ellipse(pos_x[i], pos_y[i], size, size);
   }
   if (click) {
     // update velocities - apply impulse
