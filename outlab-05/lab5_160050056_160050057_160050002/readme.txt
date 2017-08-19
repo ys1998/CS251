@@ -4,7 +4,7 @@ We pledge on our honour that we have not given or received any unauthorized assi
 ********* CONTRIBUTIONS ************
 160050057 KUMAR SAURAV Q. 3 (using sockets)
 160050056 KUMAR SAUNACK Q. 1, 4
-160050002 YASH SHAH Q. 2, 4 (JTable), 5
+160050002 YASH SHAH Q. 2, 4 (JTable only), 5
 
 ********* CITATIONS ***************
 Q1
