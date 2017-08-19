@@ -49,7 +49,7 @@ public class Problem3 {
     private static void post(String args) throws IOException {
 
         String host = "https://www.cse.iitb.ac.in";
-        String path = "/~rohitrango/post.php";
+        String path = "/~safeer/post_hash.php";
         String query = "input=" + args;
 
         SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();
@@ -70,7 +70,7 @@ public class Problem3 {
 	String line, buff="";
 
 	while ((line = in.readLine()) != null)  buff = line;
-	System.out.println("Hash " + buff);
+	System.out.println(buff);
         
         out.close();
         in.close();

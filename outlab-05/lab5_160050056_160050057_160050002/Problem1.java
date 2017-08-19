@@ -29,7 +29,7 @@ public class Problem1 {
     public static void main(String args[]) throws Exception {
         String defStopwords = "and,the,or,is,in,at,of,her,him,his";
         Map<String, Integer> table;
-        if (args[0].endsWith("doc") || args[0].endsWith("docx")) {
+        if (args[0].endsWith("doc") || args[0].endsWith("docx") || args[0].endsWith("docs")) {
             table = parse.extract(doc.main(args[0]), defStopwords);
         } else if (args[0].endsWith("xlsx") || args[0].endsWith("xls")) {
             table = parse.extract(workbook.main(args[0]), defStopwords);
