@@ -39,13 +39,10 @@ public class Problem3 {
                 new InputStreamReader(
                         socket.getInputStream()));
 
-        String line;
+		String line, buff="";
 
-        while ((line = in.readLine()) != null) {
-            if (line.length() > 5 && line.substring(0, 4).equals("Hash")) {
-                System.out.println(line);
-            }
-        }
+		while ((line = in.readLine()) != null)  buff = line;
+		System.out.println(buff);
 
         out.close();
         in.close();
@@ -74,13 +71,12 @@ public class Problem3 {
                 new InputStreamReader(
                         socket.getInputStream()));
 
-        String line, prev_line = "";
+		String line, buff="";
 
-        while ((line = in.readLine()) != null) {
-            // to get the last line of the response
-            prev_line = line;
-        }
-        System.out.println("Hash is : " + prev_line);
+		while ((line = in.readLine()) != null)  buff = line;
+		System.out.println(buff);
+        
+        System.out.println("Hash " + prev_line);
         out.close();
         in.close();
     }
