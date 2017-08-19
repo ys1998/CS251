@@ -101,15 +101,18 @@ class workbook {
         while (rowIterator.hasNext()) {
             row = (XSSFRow) rowIterator.next();
             Iterator< Cell> cellIterator = row.cellIterator();
+            Cell cell=null;
             while (cellIterator.hasNext()) {
-                Cell cell = cellIterator.next();
-                switch (cell.getCellTypeEnum()) {
-                    case NUMERIC:
-                        text = cell.getNumericCellValue() + "," + text;
-                        break;
-                    case STRING:
-                        text = cell.getStringCellValue() + "," + text;
-                        break;
+                cell = cellIterator.next();
+                if (cell != null) {
+                    switch (cell.getCellTypeEnum()) {
+                        case NUMERIC:
+                            text = cell.getNumericCellValue() + "," + text;
+                            break;
+                        case STRING:
+                            text = cell.getStringCellValue() + "," + text;
+                            break;
+                    }
                 }
             }
 

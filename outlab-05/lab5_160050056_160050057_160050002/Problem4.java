@@ -1,5 +1,6 @@
 //https://stackoverflow.com/questions/37424284/unreported-exception-java-lang-exception-must-be-caught-or-declared-to-be-throw
 
+import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -18,6 +19,7 @@ class Form {
     private JLabel output;
     private JLabel text1;
     private JPanel row1;
+    private JPanel row2;
     private JTable result;                          // TABLE
     private JScrollPane result_container;           // TABLE
     private Map<String, Integer> result_map;        // TABLE
@@ -47,8 +49,8 @@ class Form {
                     temp.addRow(new Object[]{entry.getKey(), entry.getValue()});
                 }
                 result = new JTable(temp);
-                result_container=new JScrollPane(result);           // For scrollable TABLE
-                frame.add(result_container);
+                result_container=new JScrollPane(result,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);           // For scrollable TABLE
+                frame.add(result_container,BorderLayout.CENTER);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,6 +63,7 @@ class Form {
 
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     filepath = fc.getSelectedFile();
+                    output.setText("File selected : "+filepath);
                 }
             } else {
                 String command = e.getActionCommand();
@@ -73,6 +76,9 @@ class Form {
                     stopword.setText("and,the,or,is,in,at,of,her,him,his");
                     //filepath  = /home;
                     output.setText("Fields reset.");
+                    frame.remove(result_container);
+                    result_container=new JScrollPane(new JTable());
+                    frame.add(result_container,BorderLayout.CENTER);
                 }
             }
         }
@@ -80,7 +86,7 @@ class Form {
 
     public Form() {
         frame = new JFrame("Problem 4");
-        openButton = new JButton("open");
+        openButton = new JButton("Open");
         goButton = new JButton("Go");
         resetButton = new JButton("Reset");
         file = new JTextField(20);
@@ -88,6 +94,7 @@ class Form {
         output = new JLabel("Please select file and enter stopwords");
         text1 = new JLabel("Stopwords");
         row1 = new JPanel();
+        row2 = new JPanel(new GridLayout(4,0));
         
         result_container=new JScrollPane(new JTable());               // TABLE
         
@@ -95,15 +102,23 @@ class Form {
         row1.add(stopword);
         stopword.setText("and,the,or,is,in,at,of,her,him,his");
         frame.setSize(600, 300);
-        frame.setLayout(new GridLayout(8, 0));
+        frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        goButton.setSize(50,20);
+        openButton.setSize(50,20);
+        resetButton.setSize(50,20);
+        
+        row2.add(openButton);
+        row2.add(goButton);
+        row2.add(resetButton);
+        
 
-        frame.add(row1);
-        frame.add(openButton);
-        frame.add(goButton);
-        frame.add(resetButton);
-        frame.add(output);
-        frame.add(result_container);              // TABLE
+        frame.add(row1,BorderLayout.NORTH);
+        frame.add(row2,BorderLayout.EAST);
+        
+        frame.add(output,BorderLayout.SOUTH);
+        frame.add(result_container,BorderLayout.CENTER);              // TABLE
 
         resetButton.setActionCommand("reset");
         goButton.setActionCommand("go");
