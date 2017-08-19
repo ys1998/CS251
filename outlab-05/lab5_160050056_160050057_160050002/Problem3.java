@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class problem3{
+public class Problem3{
 	private static void get(String args) throws IOException{
 
 		String host = "https://www.cse.iitb.ac.in";
