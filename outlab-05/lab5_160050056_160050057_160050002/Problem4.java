@@ -18,8 +18,9 @@ class Form {
     private JLabel output;
     private JLabel text1;
     private JPanel row1;
-    private JTable result;
-    private Map<String,Integer> result_map;
+    private JTable result;                          // TABLE
+    private JScrollPane result_container;           // TABLE
+    private Map<String, Integer> result_map;        // TABLE
     String defStopWord = "and,the,or,is,in,at,of,her,him,his";
     final JFileChooser fc = new JFileChooser();
     File filepath;
@@ -32,20 +33,22 @@ class Form {
             try {
                 arg = filepath.getCanonicalPath();
                 if (arg.endsWith("doc") || arg.endsWith("docx")) {
-                    result_map=parse.extract(doc.main(arg), stopword.getText());
+                    result_map = parse.extract(doc.main(arg), stopword.getText());
                 } else if (arg.endsWith("xlsx") || arg.endsWith("xls")) {
-                    result_map=parse.extract(workbook.main(arg), stopword.getText());
+                    result_map = parse.extract(workbook.main(arg), stopword.getText());
                 } else if (arg.endsWith("pdf")) {
-                    result_map=parse.extract(pdf.main(arg), stopword.getText());
+                    result_map = parse.extract(pdf.main(arg), stopword.getText());
                 }
-                frame.remove(result);               // TABLE
-                DefaultTableModel temp=new DefaultTableModel();
-                temp.addColumn("Word"); temp.addColumn("Frequency");
-                for(Map.Entry<String,Integer> entry:result_map.entrySet()){
-                    temp.addRow(new Object[]{entry.getKey(),entry.getValue()});
+                frame.remove(result_container);               // TABLE
+                DefaultTableModel temp = new DefaultTableModel();
+                temp.addColumn("Word");
+                temp.addColumn("Frequency");
+                for (Map.Entry<String, Integer> entry : result_map.entrySet()) {
+                    temp.addRow(new Object[]{entry.getKey(), entry.getValue()});
                 }
-                result=new JTable(temp);
-                frame.add(result);
+                result = new JTable(temp);
+                result_container=new JScrollPane(result);           // For scrollable TABLE
+                frame.add(result_container);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -59,17 +62,18 @@ class Form {
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     filepath = fc.getSelectedFile();
                 }
-            }
-            String command = e.getActionCommand();
-            if (command == "Go") {
-                output.setText("Opening and parsing file...");
-                main();
+            } else {
+                String command = e.getActionCommand();
+                if ("go".equals(command)) {
+                    output.setText("Opening and parsing file...");
+                    main();
 
-            } else if (command == "reset") {
-                file.setText("");
-                stopword.setText("and,the,or,is,in,at,of,her,him,his");
-                //filepath  = /home;
-                output.setText("Fields reset.");
+                } else if ("reset".equals(command)) {
+                    file.setText("");
+                    stopword.setText("and,the,or,is,in,at,of,her,him,his");
+                    //filepath  = /home;
+                    output.setText("Fields reset.");
+                }
             }
         }
     }
@@ -84,7 +88,9 @@ class Form {
         output = new JLabel("Please select file and enter stopwords");
         text1 = new JLabel("Stopwords");
         row1 = new JPanel();
-        result=new JTable();                // TABLE
+        
+        result_container=new JScrollPane(new JTable());               // TABLE
+        
         row1.add(text1);
         row1.add(stopword);
         stopword.setText("and,the,or,is,in,at,of,her,him,his");
@@ -97,9 +103,10 @@ class Form {
         frame.add(goButton);
         frame.add(resetButton);
         frame.add(output);
-        frame.add(result);              // TABLE
+        frame.add(result_container);              // TABLE
 
         resetButton.setActionCommand("reset");
+        goButton.setActionCommand("go");
         openButton.addActionListener(new ButtonClick());
         goButton.addActionListener(new ButtonClick());
         resetButton.addActionListener(new ButtonClick());
