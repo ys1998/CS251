@@ -12,6 +12,7 @@ class Add implements Runnable {
         res = new int[a.length];
     }
 
+    @Override
     public void run() {
         for (int i = 0; i < a.length; ++i) {
             res[i] = a[i] + b[i];
@@ -29,6 +30,7 @@ class Multiply implements Runnable {
         res = new int[a.length];
     }
 
+    @Override
     public void run() {
         for (int i = 0; i < a.length; ++i) {
             res[i] = a[i] * b[i];
@@ -59,14 +61,11 @@ public class Problem2 {
 
         // Execution using threads
         st1=System.nanoTime();
-        Thread t2 = new Thread(sum);
-        Thread t1 = new Thread(product);
+        Thread t1 = new Thread(sum);
+        Thread t2 = new Thread(product);
         st=System.nanoTime();
         t1.start();
         t2.start();
-        try{    t1.join();t2.join();}
-        catch(Exception e){
-        }
         end=System.nanoTime();
         System.out.println("Threading time (ns) EXCLUDING thread creation : "+(end-st));
         System.out.println("Threading time (ns) INCLUDING thread creation : "+(end-st1));
@@ -90,10 +89,9 @@ public class Problem2 {
     // because the operation performed in the threads is trivial (adding and 
     // multiplying numbers) and so, the cost of creating and maintaining threads
     // dominates over operation cost. Thus, using a single thread turns out to 
-    // be more efficient for this problem, if we include the thread creation time.
+    // be more efficient, if we include the thread creation time
     
     // However, if thread creation time is excluded and we simply focus on the
-    // thread execution time in those cases where the task performed in the threads
-    // is non trivial, then multithreading takes less time than the sequential
-    // method as expected (due to implementation of time splicing in multithreading)
+    // thread execution time, then it is less than the sequential time (as expected
+    // due to time splicing)
 }
