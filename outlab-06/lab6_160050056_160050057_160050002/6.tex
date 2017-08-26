@@ -1,0 +1,95 @@
+%https://www.sharelatex.com/learn/Beamer
+%https://tex.stackexchange.com/questions/66995/modify-footer-of-slides
+%https://tex.stackexchange.com/questions/79842/adding-co-authors-to-customised-title-page-for-beamer-presentation
+%https://tex.stackexchange.com/questions/360675/bullets-points-styles
+\documentclass{beamer}
+
+\usepackage{graphicx}
+
+\definecolor{darkblue}{RGB}{25,25,89}
+\definecolor{lightviolet}{RGB}{47,47,163}
+\definecolor{offwhite}{gray}{0.7}
+
+\setbeamercolor{title in head}{fg=white, bg=darkblue}
+\setbeamercolor{title in foot}{fg=white, bg=darkblue}
+\setbeamercolor{author in head/foot}{fg=white, bg=lightviolet}
+
+\usetheme{Warsaw}
+
+\setbeamertemplate{headline}{	
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1.6em]
+		{title in head}
+		{\vspace*{0.5em}\hspace*{3mm} Itemize and Enumerate}
+	\end{beamercolorbox}
+	
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1.6em]
+		{author in head/foot}
+	\end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1.6em]
+		{author in head/foot}
+		\vspace{-0.2em}\hspace*{3mm}\insertauthor \hfill \vspace{0.4em}\insertinstitute\hspace*{3mm}
+	\end{beamercolorbox}
+	
+	\begin{beamercolorbox}[wd=\paperwidth,ht=1.6em]
+		{title in foot}
+		\hspace*{3mm}\vspace{0.5em}\inserttitle
+	\end{beamercolorbox}
+}
+
+\title[SSL]{CS251: Software Lab}
+\subtitle{{\LaTeX} Advanced}
+\author[Contour]{Contour \\160050002 \\160050056 \\160050057}
+\institute[IIT]{Indian Institute of Technology,Bombay}
+\date{ August 21, 2017}
+
+\logo{\raisebox{5mm}{\includegraphics[height=1cm,width=1cm]{logo.png}} \hspace{5mm} }
+
+\begin{document}
+
+{
+	\setbeamercolor{title in head}{fg=offwhite}
+	\frame{\titlepage}
+
+	\begin{frame}
+		\frametitle{Table Of Contents}
+		\setbeamertemplate{section in toc}[square]
+		\tableofcontents
+	\end{frame}
+}
+
+\section{Itemize and Enumerate}
+
+\begin{frame}
+	\frametitle{Itemize}
+	\setbeamertemplate{itemize item}[square]
+	\begin{itemize}
+		\item {\LaTeX} typesets a file of text using the TEX program.
+		\item {\LaTeX} is widely used in academia for the communication and publication of scientific documents in many fields, including mathematics, physics, computer science, statistics, economics and political science.
+		\item {\LaTeX} can be used as a standalone document preparation system or as an intermediate format.
+		\item {\LaTeX} is intended to provide a high-level language that
+accesses the power of TeX in an easier way for writers.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Enumerate}
+	\setbeamertemplate{enumerate item}[square]
+	\begin{enumerate}
+		\item {\LaTeX} typesets a file of text using the TEX program.
+		\item {\LaTeX} is widely used in academia for the communication and publication of scientific documents in many fields, including mathematics, physics, computer science, statistics, economics and political science.
+		\item {\LaTeX} can be used as a standalone document preparation system or as an intermediate format.
+		\item {\LaTeX} is intended to provide a high-level language that
+accesses the power of TeX in an easier way for writers.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge {Thank You}
+	\end{center}
+\end{frame}
+
+\end{document}
