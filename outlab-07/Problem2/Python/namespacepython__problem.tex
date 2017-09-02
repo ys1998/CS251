@@ -1,0 +1,138 @@
+\hypertarget{namespacepython__problem}{}\section{python\+\_\+problem Namespace Reference}
+\label{namespacepython__problem}\index{python\+\_\+problem@{python\+\_\+problem}}
+
+
+This package was provided to us as a part of 7th outlab assignment.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacepython__problem_a3e14eabd673d5450fc9ad0f55944ddbc}{make} (filename)
+\begin{DoxyCompactList}\small\item\em Function to obtain integers from a data file. \end{DoxyCompactList}\item 
+def \hyperlink{namespacepython__problem_aa5fcea23fc1ba14c5e21dfeb25a73376}{fun1} (l)
+\begin{DoxyCompactList}\small\item\em Function to sort a list of integers into ascending order. \end{DoxyCompactList}\item 
+def \hyperlink{namespacepython__problem_aeb8631d95a0e5c21716de1efa0a93f88}{fun2} (l, x)
+\begin{DoxyCompactList}\small\item\em Function to search for an element in a list, and display the intermediate steps. \end{DoxyCompactList}\item 
+def \hyperlink{namespacepython__problem_aecd5932c95cd5087a63f7a9cdd9a9261}{fun3} (\hyperlink{namespacepython__problem_a57cd50d64eeaf609bf3db7738032930d}{L})
+\begin{DoxyCompactList}\small\item\em Function to find the determinant of the given square matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacepython__problem_a57cd50d64eeaf609bf3db7738032930d}{L} = \hyperlink{namespacepython__problem_a3e14eabd673d5450fc9ad0f55944ddbc}{make}(\char`\"{}data\char`\"{})
+\begin{DoxyCompactList}\small\item\em List or list of lists of numbers. \end{DoxyCompactList}\item 
+\hyperlink{namespacepython__problem_ad1044e14fc75b912867e5caba3482203}{ans} = \hyperlink{namespacepython__problem_aeb8631d95a0e5c21716de1efa0a93f88}{fun2}(\hyperlink{namespacepython__problem_a57cd50d64eeaf609bf3db7738032930d}{L}, 48)
+\begin{DoxyCompactList}\small\item\em Temporarily stores results of all function calls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This package was provided to us as a part of 7th outlab assignment. 
+
+It consists of a single Python file and a data file (consisting of integers on each line) which were provided to us for the Doxygen section of the 7th outlab assignment 
+
+\subsection{Function Documentation}
+\index{python\+\_\+problem@{python\+\_\+problem}!fun1@{fun1}}
+\index{fun1@{fun1}!python\+\_\+problem@{python\+\_\+problem}}
+\subsubsection[{\texorpdfstring{fun1(l)}{fun1(l)}}]{\setlength{\rightskip}{0pt plus 5cm}def python\+\_\+problem.\+fun1 (
+\begin{DoxyParamCaption}
+\item[{}]{l}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepython__problem_aa5fcea23fc1ba14c5e21dfeb25a73376}{}\label{namespacepython__problem_aa5fcea23fc1ba14c5e21dfeb25a73376}
+
+
+Function to sort a list of integers into ascending order. 
+
+This function implements bubble sort algorithm (in reverse order) to sort the given list of integers. Each element is compared with the element to its right, and if the former is larger, these two elements are swapped. This is repeated till the largest element of the examined part of the list reaches the end. The length of the list to be examined is decremented by one, and the same process is iterated until the length of the list to be examined becomes zero. The final list has all elements in ascending order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & a list of integers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the list given as input, modified such that elements are in ascending order 
+\end{DoxyReturn}
+\index{python\+\_\+problem@{python\+\_\+problem}!fun2@{fun2}}
+\index{fun2@{fun2}!python\+\_\+problem@{python\+\_\+problem}}
+\subsubsection[{\texorpdfstring{fun2(l, x)}{fun2(l, x)}}]{\setlength{\rightskip}{0pt plus 5cm}def python\+\_\+problem.\+fun2 (
+\begin{DoxyParamCaption}
+\item[{}]{l, }
+\item[{}]{x}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepython__problem_aeb8631d95a0e5c21716de1efa0a93f88}{}\label{namespacepython__problem_aeb8631d95a0e5c21716de1efa0a93f88}
+
+
+Function to search for an element in a list, and display the intermediate steps. 
+
+This function uses binary search to search for the given element in the given list. During each step, the step-\/number and the element of list under examination is printed on the screen. If the element is found, the process ends and the current step-\/number is returned. Otherwise, the process continues with updated values of s, e and m -\/ which are the indices of the starting, ending and middle of the section of {\itshape l} under examination. If s becomes equal to e, the process ends and the function returns -\/1 indicating that {\itshape x} was not found.
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & a list of numbers \\
+\hline
+{\em x} & the number to be searched for in the list {\itshape l} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if {\itshape x} is not found in {\itshape l} and number of steps required to find {\itshape x} in {\itshape l}, otherwise 
+\end{DoxyReturn}
+\index{python\+\_\+problem@{python\+\_\+problem}!fun3@{fun3}}
+\index{fun3@{fun3}!python\+\_\+problem@{python\+\_\+problem}}
+\subsubsection[{\texorpdfstring{fun3(\+L)}{fun3(L)}}]{\setlength{\rightskip}{0pt plus 5cm}def python\+\_\+problem.\+fun3 (
+\begin{DoxyParamCaption}
+\item[{}]{L}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepython__problem_aecd5932c95cd5087a63f7a9cdd9a9261}{}\label{namespacepython__problem_aecd5932c95cd5087a63f7a9cdd9a9261}
+
+
+Function to find the determinant of the given square matrix. 
+
+This function finds the determinant of the given list of lists of real numbers recursively. It iterates over the first row of the input matrix, creating a submatrix for each element of this row (the submatrix has that row and the entire column containing that element removed), followed by a recursive call with this submatrix as input parameter. The return value of recursion is used to compute the determinant of the input matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & a list of rows of a square matrix (consisting of real numbers) in the same order as they appear in the matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the only element of the matrix if its size is 1, and the determinant of the matrix otherwise 
+\end{DoxyReturn}
+\index{python\+\_\+problem@{python\+\_\+problem}!make@{make}}
+\index{make@{make}!python\+\_\+problem@{python\+\_\+problem}}
+\subsubsection[{\texorpdfstring{make(filename)}{make(filename)}}]{\setlength{\rightskip}{0pt plus 5cm}def python\+\_\+problem.\+make (
+\begin{DoxyParamCaption}
+\item[{}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepython__problem_a3e14eabd673d5450fc9ad0f55944ddbc}{}\label{namespacepython__problem_a3e14eabd673d5450fc9ad0f55944ddbc}
+
+
+Function to obtain integers from a data file. 
+
+This function reads integers from the specified file and stores them in a list in the order that they occur in the file. Only one number must be present in each line. The list of integers is then returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & complete path of the input data file as string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list of integers extracted from the specified file 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\index{python\+\_\+problem@{python\+\_\+problem}!ans@{ans}}
+\index{ans@{ans}!python\+\_\+problem@{python\+\_\+problem}}
+\subsubsection[{\texorpdfstring{ans}{ans}}]{\setlength{\rightskip}{0pt plus 5cm}python\+\_\+problem.\+ans = {\bf fun2}({\bf L}, 48)}\hypertarget{namespacepython__problem_ad1044e14fc75b912867e5caba3482203}{}\label{namespacepython__problem_ad1044e14fc75b912867e5caba3482203}
+
+
+Temporarily stores results of all function calls. 
+
+This variable is used to store the result of all function calls made in this program. It thus refers to an integer or a list depending upon the function whose return value it stores \index{python\+\_\+problem@{python\+\_\+problem}!L@{L}}
+\index{L@{L}!python\+\_\+problem@{python\+\_\+problem}}
+\subsubsection[{\texorpdfstring{L}{L}}]{\setlength{\rightskip}{0pt plus 5cm}list python\+\_\+problem.\+L = {\bf make}(\char`\"{}data\char`\"{})}\hypertarget{namespacepython__problem_a57cd50d64eeaf609bf3db7738032930d}{}\label{namespacepython__problem_a57cd50d64eeaf609bf3db7738032930d}
+
+
+List or list of lists of numbers. 
+
+All the lists or list of lists in this program are referred to by {\itshape L} 
