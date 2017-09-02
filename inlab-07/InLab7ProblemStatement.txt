@@ -1,0 +1,68 @@
+CS251 - Inlab7
+
+
+
+-----------------------------------------------------------
+Submission Guidelines for assignment - (5 marks, 0 to be awarded in case these are not followed)[to be followed for both inlab and outlab]
+-----------------------------------------------------------
+1. Create a file readme.txt in lab#_rollno.1_rollno.2_rollno.3_rollno.4 directory, which contains contribution of each team member and references (cite where you get code/code snippets from).
+e.g.lab3_154054002_154054005_154054001
+
+
+2. Rename the directory lab#_rollno.1_rollno.2_rollno.3_rollno.4 to actual lab number instead of #, replace the rollno.N with your respective roll numbers.
+e.g.lab3_154054002_154054005_154054001
+
+3. Compress the directory to <team_name>.tar.gz
+e.g. codekars.tar.gx
+
+4. Submit one assignment per team.  
+
+
+Q1)	This is a basic client server application. Write a makefile for it. Just make the relevant changes in the Makefile in the problem folder.
+
+
+Q2)	Write a make file for the given files. Please make sure that whenever a change is made to any file, only the bare minimum of files must be affected on calling make.
+ 
+	main.o should be generated from main.cpp
+	factorial.o should be generated from factorial.cpp
+hello.o should be generated from hello.cpp
+All the files should be combined to give a single executable named hello
+
+Just make the relevant changes in the Makefile in the problem folder.
+
+
+Q3 - a)	Improve upon the make file you made in the previous question, by including Macros/Variables. Include atleast 2 macros. Please make sure that whenever a change is made to any file, only the bare minimum of files must be affected on calling make.
+
+	main.o should be generated from main.cpp
+	factorial.o should be generated from factorial.cpp
+hello.o should be generated from hello.cpp
+All the files should be combined to give a single executable named hello
+
+Just make the relevant changes in the Makefile in the problem folder.
+
+
+Q3 - b)	Write a makefile for the given files. Do make use of :
+
+$@ 
+$<
+$^
+
+hellomake.o should be generated from hellomake.c
+hellofunc.o should be generated from hellofunc.c
+All the files should be combined to give a single executable named hellomake
+
+Just make the relevant changes in the Makefile in the problem folder.
+
+Q4)	Please find the repo on https://git.cse.iitb.ac.in/ananya/recursive-make. All instructions are in the README. Do not fork this repo, just clone it to your machine, work on the problem and submit Makefiles in the correct format (described in the README) in a folder called problem4.
+
+Q5)	In this question, you will use 'doxygen', which is used for generating documentation of a program. In order to generate the output, you have to follow some rules while writing comments in your program.
+
+You will find 2 'cpp' files. You must go through the code and understand what it is trying to do. As you are going along, keep adding comments. These comments will finally create the output in form of a documentation of the code. Add comments for all the relevant modules, functions and variables. Use your judgement. End result will be a documentation for a third person, so he/she should be able to understand the program just by reading your documentation output.
+
+You can learn about doxygen from the following link:
+http://www.stack.nl/~dimitri/doxygen/manual/index.html
+
+GENERATE THE HTML DOCUMENTATION FOR BOTH THE CODES.
+
+Name the documentation as "array.html" & "stud_rec.html" for respective programs while submitting.
+
