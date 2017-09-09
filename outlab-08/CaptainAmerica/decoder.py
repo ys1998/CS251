@@ -14,16 +14,8 @@ def decode():
 	nd[:,:,0]-=c_r;nd[:,:,1]-=c_g;nd[:,:,2]-=c_b;
 	nd[:,:,0]*=255/(d_r-c_r);nd[:,:,1]*=255/(d_g-c_g);nd[:,:,2]*=255/(d_b-c_b);
 	new_img=plt.imshow(nd)
+	plt.savefig('processed_image.png')
 	plt.show()
-
-	# c=np.min(data); d=np.max(data)
-	# nd_2=np.array(data)
-	# nd_2-=c
-	# nd_2*=255/(d-c)
-	# new_img_2=plt.imshow(nd_2)
-	# plt.show()
-
-
 
 
 if __name__ == '__main__':

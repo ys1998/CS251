@@ -1,0 +1,12 @@
+b'\tHere is the Vault code: 127f44f4a61c0a94e1f300c2d78f1624'
+Here is your Orb: 
+ /___/\
+//o  \_\
+\\  // /
+ \\ / /
+  \X /
+   \/
+
+
+HTTP headers contain a field called user-agent which lists the product identifier. Using this, one can filter out requests from scripts/bots.
+Indeed, if I change the request to imitate a request from Firefox, I cannot open the page (the commented code does just that).
