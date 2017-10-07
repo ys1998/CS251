@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style>
+body {
+  background-color: #3F51B5;
+  font-size: 2em;
+  text-align: center;
+  color: white;
+}
+
+.forms {
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+::-moz-placeholder {
+  text-align: center;
+}
+
+
+input {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  color: white;
+}
+
+input[type=text] {
+  -webkit-transition: width 0.7s ease-in-out;
+  transition: width 0.7s ease-in-out;
+  border-bottom: 2px solid darkgrey;
+  width: 50%;
+  height: 50px;
+  text-align: center;
+}
+
+input[type=text]:focus {
+  width: 90%;
+}
+
+input[type=button], input[type=submit] {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+function myFunction() {
+    var inp = document.getElementById("input").value;
+    if(inp == "") {}
+    else if(isPalin(inp.toLowerCase()))
+	document.getElementById("Output").innerHTML = inp + " is a palindrome";
+    else
+	document.getElementById("Output").innerHTML = inp + " is not a palindrome";
+}
+
+function isPalin(inp){
+    var x = inp.length;
+    for(var i = 0, j = x; i < x && j > i; i++, j--)
+	if(inp[i] != inp[j-1])	return false;
+	else if(i >= j)	break;
+    return true;
+}
+</script>
+
+<div style="height:200px">
+</div>
+
+<div class="forms">
+<form id="frm1">
+  <input type="text" name="input" id="input" placeholder="Input">
+  <br>
+  <input type="button" onclick="myFunction()" value="Submit">
+</form>
+</div>
+
+<div class="response" id="Output">
+</div>
+
+</body>
+</html>
+

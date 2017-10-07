@@ -1,0 +1,17 @@
+<html>
+<body>
+<script type="text/javascript">
+function toggleImage(n){
+	if(n==1){
+		document.getElementById("image").setAttribute("src","img1.jpg");
+	}else if(n==2){
+		document.getElementById("image").setAttribute("src","img2.jpg");
+	}
+}
+</script>
+<p>Hover on the box below to toggle the image !</p>
+<div style="width:200px; height:200px; border: 5px solid rgb(0,100,255); border-radius:10px;" onmouseover="toggleImage(2);" onmouseout="toggleImage(1);">
+	<img id="image" src="img1.jpg" width="200" height="200" style="border-radius: 5px">
+</div>
+</body>
+</html>

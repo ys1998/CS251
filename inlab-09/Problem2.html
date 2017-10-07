@@ -1,0 +1,52 @@
+<!-- https://www.w3schools.com/JSREF/met_node_appendchild.asp -->
+<!-- https://stackoverflow.com/questions/7000851/array-sort-doesnt-sort-numbers-correctly -->
+<html>
+<body>
+<script type="text/javascript">
+function createBoxes(){
+	var N=document.getElementById("N").value;
+	//alert(N);
+	var box_div=document.getElementById("numbers");
+	box_div.innerHTML="";
+	document.getElementById("result").innerHTML="";
+	var form=document.createElement("FORM");
+	form.setAttribute("onsubmit","sortNumbers(); return false;");
+	if(N>0){
+		box_div.innerHTML="<p>Enter numbers here : </p>";
+		for(var i=0;i<N;i++){
+			var x=document.createElement("INPUT");
+			x.setAttribute("type","number");
+			x.setAttribute("name","num");
+			form.appendChild(x);
+			form.appendChild(document.createElement("BR"));
+		}
+		var btn=document.createElement("INPUT");
+		btn.setAttribute("type","submit");
+		// btn.setAttribute("onclick","sortNumbers()");
+		btn.setAttribute("value","Sort");
+		form.appendChild(btn);
+		box_div.appendChild(form);
+	}
+}
+function sortNumbers(){
+	document.getElementById("result").innerHTML="";
+	var numbers=document.getElementsByName("num");
+	var arr=[];
+	for(var i=0;i<numbers.length;i++){
+		arr.push(numbers.item(i).value);
+	}
+	arr.sort(function(a,b){return a-b;});
+	var res=document.getElementById("result");
+	var p=document.createElement("P");
+	var text=document.createTextNode("Sorted sequence : "+arr.join());
+	p.appendChild(text);
+	res.appendChild(p);
+}
+
+			
+</script>
+<p>Value of N : </p><input type="number" id="N" /><input type="button" onclick="createBoxes()" value="Create boxes">
+<div id="numbers"></div>
+<div id="result"></div>
+</body>
+</html>
