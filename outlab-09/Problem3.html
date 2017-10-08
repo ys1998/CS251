@@ -1,0 +1,167 @@
+<!--https://stackoverflow.com/questions/5597060/detecting-arrow-key-presses-in-javascript-->
+<!--http://migo.sixbit.org/puzzles/fifteen/-->
+<html>
+<head>
+<title>	15 puzzle</title>
+</head>
+<script> var playing=false; var steps=0; var playing_mode=0;</script>
+<body>
+<style>
+input {
+	border: 1;
+	width: 48px;
+	height: 48px;
+	text-align:center; 
+	vertical-align:middle;
+}
+</style>
+<table cellspacing=0 cellpadding=0 border=2 bgcolor="#a0bba0">
+<tr>
+<input type="button" id="11" value="1">
+<input type="button" id="12" value="2">
+<input type="button" id="13" value="3">
+<input type="button" id="14" value="4">
+<br></tr>
+<tr>
+<input type="button" id="21" value="5">
+<input type="button" id="22" value="6">
+<input type="button" id="23" value="7">
+<input type="button" id="24" value="8">
+<br></tr>
+<tr>
+<input type="button" id="31" value="9">
+<input type="button" id="32" value="10">
+<input type="button" id="33" value="11">
+<input type="button" id="34" value="12">
+<br></tr>
+<tr>
+<input type="button" id="41" value="13">
+<input type="button" id="42" value="14">
+<input type="button" id="43" value="15">
+<input type="button" id="44" value=" ">
+<br></tr>
+</table>
+<button type="button" value="challenge" onclick="play(0)">Challenge</button>
+<button type="button" value="solve" onclick="play(1)">Start solving</button>
+<button type="button" value="reset" onclick="reset()">Reset</button>
+
+
+<script>
+function reset(){
+	playing=false;
+	for(x=1;x<=4;x++){
+		for(y=1;y<=4;y++){
+			if(x==4 && y==4)	document.getElementById(String(x)+String(y)).value = " ";
+			else		document.getElementById(String(x)+String(y)).value = (x-1)*4+y;
+		}
+	}
+}	
+	
+function check(){
+	//alert("checking");	
+	for(x=1;x<=4;x++){
+		for(y=1;y<=4;y++){
+			if(!(x==4 && y==4) && document.getElementById(String(x)+String(y)).value != (x-1)*4+y)
+				return;
+		}
+	}
+	if(playing_mode==1){
+		alert("congratulations! you completed the game in "+steps+" moves.");
+		playing = false;
+	}
+}
+
+function play(mode){
+	playing_mode = mode;
+	steps=0;
+	playing=true;
+}
+
+function findblank(){
+	for(x=1;x<=4;x++){
+		for(y=1;y<=4;y++){
+			if(document.getElementById(String(x)+String(y)).value == " ")
+				return [x,y];		
+		}
+	}
+}
+
+function swap(tile1,tile2){
+	var temp = document.getElementById(String(tile1[0])+String(tile1[1])).value;
+	document.getElementById(String(tile1[0])+String(tile1[1])).value = document.getElementById(String(tile2[0])+String(tile2[1])).value;
+	document.getElementById(String(tile2[0])+String(tile2[1])).value = temp;
+}
+
+function movedown(){	
+	blank = findblank();
+	if(blank[0] == 1)
+		return;
+	steps++;
+	var down = [blank[0]-1,blank[1]];
+	swap(blank,down);
+}	
+
+
+function moveup(){
+	blank = findblank();
+	if(blank[0] == 4)
+		return;
+	steps++;
+	var down = [blank[0]+1,blank[1]];
+	swap(blank,down);
+}	
+
+
+function moveright(){
+	blank = findblank();
+	if(blank[1] == 0)
+		return;
+	steps++;
+	var down = [blank[0],blank[1]-1];
+	swap(blank,down);
+}	
+
+
+function moveleft(){
+	blank = findblank();
+	if(blank[1] == 4)
+		return;
+	steps++;
+	var down = [blank[0],blank[1]+1];
+	swap(blank,down);
+}	
+
+
+//function moveleft(){alert("moving");}
+//function moveup(){alert("moving");}
+//function movedown(){alert("moving");}
+//function moveright(){alert("moving");}
+
+document.onkeydown = function(e) {
+			
+	if(playing == true){
+    switch (e.keyCode) {
+        case 37:
+	    moveleft();
+            check();
+  		break;
+        case 38:
+            moveup();
+            check();
+  		break;
+        case 39:
+            moveright();
+            check();
+  		break;
+        case 40:
+            movedown();
+            check();
+  		break;
+    }
+	
+	}
+};
+
+</script>
+</body>
+</html>
